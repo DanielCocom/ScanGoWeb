@@ -1,33 +1,37 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+
 const userName = document.getElementById('userName');
 const userPassword = document.getElementById('password')
-const loginBottom = document.getElementById('loginButtom')
+const loginButtom = document.getElementById('loginButton');
 
 
 
-loginBottom.addEventListener('click', () => {
+if (loginButtom){
+    loginButtom.addEventListener('click', () => {
     
     
     const LoginData = {
         nombre:userName.value,
-        contraseña: userPassword.value
+        contraseña:userPassword.value
     }
 
     const requestOption = {
         method: 'POST',
-        Headers: {
+        mode: 'no-cors',
+        headers: {
             'Content-Type': 'application/json'
-
         },
         body: JSON.stringify(LoginData),
-
     }
-
-    fetch('http://localhost:5297/v1/Administrador/iniciar sesion', requestOption)
+    fetch('https://walmart.somee.com/publish/v1/Administrador/iniciar/sesion', requestOption)
     .then(response =>{
         if(response.ok){
+            return response.json();
+        } else {
             console.log('no se inicio sesion')
+            throw new Error('Response not OK');
         }
-        return response.json();
     })
     .then(data => {
         console.log('inicio de seion')
@@ -57,3 +61,7 @@ fetch(apiUrl)
         console.error('Error', error)
     })
 
+}
+else{
+    console.error('Elemento con id "loginButton" no encontrado');
+}});

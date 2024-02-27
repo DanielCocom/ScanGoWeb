@@ -1,0 +1,8 @@
+/* ventas.css */
+
+.row > .col-md-12 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  

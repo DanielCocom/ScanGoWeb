@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScanGo</title>
-    <!-- Agrega el enlace a Bootstrap CSS -->
+    <title>Fast && Go </title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg header-custom-color">
-        <div class="container">
+    <nav
+        class="navbar navbar-expand-lg bg-info text-secondary shadow d-flex justify-content-between align-items-center">
+        <div>
             <img src="assets/logo_scanGo.png" alt="Logo" class="mr-5" style="width: 50px;">
-            <a class="navbar-brand header-custom-text-color" href="#">Fast & Go</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="justify-content-end">
-                    <!-- Aquí puedes mostrar el nombre del usuario -->
-                    <span class="navbar-text header-custom-text-color">Sergio</span>
-                </div>
-            </div>
+            <a class="navbar-brand header-custom-text-color-black" href="#">FAST && GO</a>
+        </div>
+        <div>
+            <span class="navbar-text header-custom-text-color-black">Sergio</span>
         </div>
     </nav>
-    <div class="d-flex justify-content-center m-5"> 
-        <div class=" col-3">
 
-            <!-- <span>Establecimientos</span> -->
-        </div>
-        <div class="p-2 col-lg-4">
-            <img src="assets/superaki.jpg" alt="Sucursal 1" class="img-fluid">
+
+    <div class="container justify-content-center m-5">
+        <div class="row">
+            <div class="box">
+                <img src="assets/superaki.jpg" alt="Sucursal 1" class="img-fluid">
                 <p class="mt-2">Super Aki</p>
-                <form action="Tienda.html">
+                <form action="Prodcuctos.html">
                     <button type="submit" class="btn btn-outline-info">Inventario</button>
                 </form>
-        </div>
-        <div class="p-2 col-lg-4">
-            <img src="assets/super.jpg" alt="Sucursal 1" class="img-fluid">
+            </div>
+
+
+            <div class="box">
+                <img src="assets/super.jpg" alt="Sucursal 1" class="img-fluid">
                 <p class="mt-2">Dunosusa Oriente</p>
-                <form action="Tienda.html">
+                <form action="Prodcuctos.html">
                     <button type="submit" class="btn btn-outline-info">Inventario</button>
                 </form>
+            </div>
+
+            <div class="box">
+                <img src="assets/super.jpg" alt="Sucursal 1" class="img-fluid">
+                <p class="mt-2">Dunosusa Oriente</p>
+                <form action="Prodcuctos.html">
+                    <button type="submit" class="btn btn-outline-info">Inventario</button>
+                </form>
+            </div>
         </div>
+
+
     </div>
 
-    <!-- Agrega aquí el contenido de tu página -->
+
+
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </body>
+<footer class="bg-info text-secondary shadow d-flex justify-content-center align-items-center p-3">
+    <p class="mb-0">© 2022 Your Company Name</p>
+</footer>
+
 </html>
