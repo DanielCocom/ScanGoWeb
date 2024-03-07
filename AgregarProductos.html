@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar Producto</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" />
+    <style>
+      .centered-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="centered-form">
+        <div>
+          <h1 class="text-center mb-4">Registrar Producto</h1>
+          <form id="productForm">
+            <div class="mb-3">
+              <label for="productId" class="form-label">ID del Producto</label>
+              <input
+                type="text"
+                class="form-control custom-input"
+                id="productId"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="productName" class="form-label"
+                >Nombre del Producto</label
+              >
+              <input
+                type="text"
+                class="form-control custom-input"
+                id="productName"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="productPrice" class="form-label"
+                >Precio del Producto</label
+              >
+              <input
+                type="number"
+                class="form-control custom-input"
+                id="productPrice"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="productQuantity" class="form-label"
+                >Cantidad en Stock</label
+              >
+              <input
+                type="number"
+                class="form-control custom-input"
+                id="productQuantity"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary custom-btn">
+              Registrar Producto
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("productForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+            // Obtener los valores del formulario
+            var productId = document.getElementById("productId").value;
+            var productName = document.getElementById("productName").value;
+            var productPrice = parseFloat(
+              document.getElementById("productPrice").value
+            );
+            var productQuantity = parseInt(
+              document.getElementById("productQuantity").value
+            );
+
+            // Crear el objeto de datos para enviar en la solicitud POST
+            var data = {
+              idProducto: productId,
+              nombre: productName,
+              precio: productPrice,
+              imagen: "string",
+              idTipoProducto: 0,
+              idDescuento: 0,
+            };
+
+            var cantidad = 20;
+
+            var url = `https://walmart.somee.com/publish/v1/Producto?idEstablecimiento=1&cantidad=${productQuantity}`;
+
+            // Hacer la solicitud POST a tu API utilizando fetch
+            fetch(url, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            })
+              .then((response) => {
+                if(response){
+                  alert("Producto registrado exitosamente:", data);
+
+                }
+                else{
+                  alert("Producto registrado exitosamente:", data);
+
+                }
+               
+              })
+              .then((data) => {
+                // Manejar la respuesta de la API
+                // Aquí puedes redirigir a otra página si lo deseas
+              })
+              .catch((error) => {
+                // Manejar errores de la solicitud
+              });
+          });
+      });
+    </script>
+  </body>
+</html>

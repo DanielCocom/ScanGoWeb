@@ -132,4 +132,22 @@
 }
 
 
-    
+.custom-input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .custom-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .custom-btn:hover {
+    background-color: #0056b3;
+  }

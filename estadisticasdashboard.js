@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
     var url = 'https://walmart.somee.com/publish/v1/Venta/ProductoMasVendido?idEstablecimiento=1';
-
+    
     fetch(url)
         .then(response => response.json())
         .then(productosMasVendidos => {
@@ -34,32 +35,85 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-var ctx2 = document.getElementById('leastSoldProductsChart').getContext('2d');
-var leastSoldProductsChart = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-        labels: ['Producto 1', 'Producto 2', 'Producto 3', 'Producto 4', 'Producto 5'],
-        datasets: [{
-            label: '# de Ventas',
-            data: [2, 3, 5, 7, 9],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    var ctx2 = document.getElementById('leastSoldProductsChart').getContext('2d');
+    var leastSoldProductsChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: [{
+                label: '# de Ventas',
+                data: [],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+
+    var url = 'https://walmart.somee.com/publish/v1/Venta/ProductoMenosVendido?idEstablecimiento=1';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Obtener los nombres de los productos y la cantidad de ventas
+            var nombresProductos = data.map(producto => producto.nombre);
+            var cantidadVentas = data.map(producto => producto.ventas);
+
+            // Actualizar los datos del gráfico
+            leastSoldProductsChart.data.labels = nombresProductos;
+            leastSoldProductsChart.data.datasets[0].data = cantidadVentas;
+            leastSoldProductsChart.update();
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
+        });
 });
 
-var ctx3 = document.getElementById('latestPurchasesChart').getContext('2d');
-var latestPurchasesChart = new Chart(ctx3, {
-    type: 'line',
-    data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
-        datasets: [{
-            label: '# de Compras',
-            data: [2, 9, 3, 5, 2],
-            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            borderColor: 'rgba(153, 102, 255, 1)',
-            borderWidth: 1
-        }]
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    var url = 'https://walmart.somee.com/publish/v1/Venta/VentasTienda?idEstablecimiento=1';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(ultimasCompras => {
+            // Obtener las fechas de las compras
+            var fechasCompras = ultimasCompras.map(compra => new Date(compra.fechaVenta).toLocaleDateString());
+            
+            // Contar el número de compras para cada fecha
+            var comprasPorFecha = {};
+            fechasCompras.forEach(fecha => {
+                if (comprasPorFecha[fecha]) {
+                    comprasPorFecha[fecha]++;
+                } else {
+                    comprasPorFecha[fecha] = 1;
+                }
+            });
+
+            // Convertir los datos en un formato adecuado para el gráfico
+            var fechas = Object.keys(comprasPorFecha);
+            var cantidadCompras = fechas.map(fecha => comprasPorFecha[fecha]);
+
+            // Actualizar los datos del gráfico
+            latestPurchasesChart.data.labels = fechas;
+            latestPurchasesChart.data.datasets[0].data = cantidadCompras;
+            latestPurchasesChart.update();
+        })
+        .catch(error => {
+            console.error('Error al obtener las últimas compras:', error);
+        });
+
+    var ctx3 = document.getElementById('latestPurchasesChart').getContext('2d');
+    var latestPurchasesChart = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: '# de Compras',
+                data: [],
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
 });

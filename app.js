@@ -1,4 +1,8 @@
-// app.js
+    var userName = document.getElementById("nombreUsuario")
+
+console.log(userName)
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Obtener el ID del establecimiento de la URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -50,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(establecimientos => {
             // Obtener el contenedor de establecimientos
             var establecimientosContainer = document.getElementById('establecimientosContainer');
+            
 
             // Limpiar el contenedor de establecimientos
             establecimientosContainer.innerHTML = '';
@@ -106,3 +111,5 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error al obtener establecimientos:', error);
         });
 });
+
+
