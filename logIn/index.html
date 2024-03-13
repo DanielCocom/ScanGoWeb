@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/assets/logo-vt.svg" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesion</title>
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <!-- <link rel="stylesheet" href="/logIn/login.css"> -->
+  <!-- esta hoja de estilos se supone que es para centrar el modal -->
+
+</head>
+<body class="bg-opacity-10 bg-black d-flex justify-content-center align-items-center vh-100">
+  <div class="bg-info p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+     <div class="d-flex justify-content-center">
+      <img
+        src="/assets/logo_scanGo.png"
+        alt="login-icon"
+        style="height: 11rem"
+        class=" rounded-circle bg-white"
+      />
+      <div id="modalContainer">
+
+      </div>
+    </div>
+    <div class="text-center fs-1 fw-bold">Bienvenido</div>
+    <div class="input-group mt-4">
+      <div class="input-group-text bg-info"> 
+        <img
+          src="/assets/avatar.png"
+          alt="username-icon"
+          style="height: 1rem"
+        />
+      </div>
+      <input
+        class="form-control bg-light"
+        type="text"
+        placeholder="Username"
+        id="userName"
+      />
+    </div>
+    <div class="input-group mt-1">
+      <div class="input-group-text bg-info">
+        <img
+          src="/assets/candado.png"
+          alt="password-icon"
+          style="height: 1rem"
+        />
+      </div>
+      <input
+        class="form-control bg-light"
+        type="password"
+        placeholder="Password"
+        id="password"
+      />
+    </div>
+    <div class="d-flex justify-content-around mt-1">
+      <div class="d-flex align-items-center gap-1">
+        <input class="form-check-input" type="checkbox" />
+        <div class="pt-1" style="font-size: 0.9rem">Recuerdame</div>
+      </div>
+      <div class="pt-1">
+        <a
+          href="#"
+          class="text-decoration-none text-info fw-semibold fst-italic"
+          style="font-size: 0.9rem"
+          >Olvidaste tu Contraseña?</a
+        >
+      </div>
+    </div>
+    
+    <!-- Utiliza el atributo action del formulario para redireccionar a Dashboard.html -->
+    <form id="loginForm" class="d-flex justify-content-center ">
+      <div class="m-md-1"></div>
+      <button type="submit" class="btn btn-outline-primary border border-primary" id="loginButton">Log in</button>
+    </form>
+    
+    <div class="p-3">
+      
+    </div>
+  </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+
+<script src="login.js"></script>
+
+</html>

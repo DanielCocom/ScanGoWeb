@@ -60,18 +60,27 @@
 
     /* Estilos personalizados para los contenedores de productos */
     .productos-container {
-        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20px;  padding: 20px;
     }
     .producto {
-        border: 1px solid #ddd;
+        flex: 1 1 300px;
+        margin: 10px;
+        border: 1px solid #ccc;
         border-radius: 5px;
         padding: 10px;
-        margin-bottom: 20px;
+        text-align: center; /* Centrar el contenido del producto */
     }
     .producto img {
-        max-width: 100%;
+        max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
         height: auto;
-        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    .producto-info {
+        margin-top: 10px;
     }
     .logo-text-container {
         display: flex;
