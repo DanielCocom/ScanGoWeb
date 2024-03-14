@@ -82,6 +82,7 @@
     margin: 20px 50px; /* Agrega margen a los lados */
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
 
 }
 
@@ -126,6 +127,8 @@
 .navbar-brand {
     font-size: 1.5em;
     font-weight: bold;
+    margin-left: 15px;
+
 }
 
 .navbar-text-custom {
