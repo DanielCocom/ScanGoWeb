@@ -1,8 +1,69 @@
 /* ventas.css */
 
-.row > .col-md-12 {
-    width: 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  
+/* Contenedor principal */
+.container.ventas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Gráficos */
+.ventas > .row > .col-md-12 > canvas {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: auto; /* Centra el elemento horizontalmente */
+}
+
+/* Tabla de datos */
+#salesTable {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin: auto; /* Centra el elemento horizontalmente */
+}
+
+#salesTable th, #salesTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#salesTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Estilos de la barra de navegación */
+.header-custom-color{
+  background-color: #17a2b8;
+}
+
+.header-custom-text-color{
+  color: white;
+}
+
+.navbar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#sidebarToggle {
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  display: block;
+  margin-left: auto; /* Agrega esta línea */
+}
+
+/* Estilo del pie de página */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

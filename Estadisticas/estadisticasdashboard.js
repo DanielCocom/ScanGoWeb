@@ -58,20 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error al obtener los datos:', error);
         });
 
-        var ctx2 = document.getElementById('leastSoldProductsChart').getContext('2d');
-        var leastSoldProductsChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: '# de Ventas',
-                    data: [],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1
-                }]
-            }
-        });
+        
 });
 
 document.addEventListener('DOMContentLoaded', function () {

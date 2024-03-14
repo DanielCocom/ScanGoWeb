@@ -1,0 +1,111 @@
+/* statistics.css */
+
+/* Contenedor principal */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Gráficos */
+.stats-chart {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+/* Tabla de datos */
+.stats-table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+}
+
+.stats-table th, .stats-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.stats-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+sidebarToggle {
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    display: block;
+    margin-left: auto; /* Agrega esta línea */
+}
+
+
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    width: 250px; /* Increase width */
+    height: 100vh;
+    position: fixed;
+    overflow: auto;
+    left: -250px; /* Increase left */
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar a {
+    display: block;
+    color: #212529;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: #17a2b8;
+    color: white;
+    text-decoration: none;
+    transform: scale(1.05); /* Add hover effect */
+}
+.sidebar.show {
+    left: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    color: #000;
+}
+
+.header-custom-color{
+    background-color: #17a2b8;
+}
+
+.header-custom-text-color{
+    color: white;
+}
+
+.navbar {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+#sidebarToggle {
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    display: block;
+    margin-left: auto; /* Agrega esta línea */
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}

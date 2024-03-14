@@ -20,13 +20,11 @@
             <a class="navbar-text navbar-text-custom" >Fast && Go</a>
            </div>
 
-            <button class="navbar-toggler" type="button" id="sidebarToggle" aria-controls="sidebar"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div >
-                <span class="navbar-text navbar-text-custom">Usuario</span>
-            </div>
+           <button class="navbar-toggler" type="button" id="sidebarToggle" aria-controls="sidebar"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+          
         
     </nav>
     <!-- Barra lateral -->
@@ -48,15 +46,19 @@
 
         </ul>
     </div>  
-    <div id="serchInputContainer">
+   <!-- HTML -->
+<!-- HTML -->
+<!-- HTML -->
+<div id="serchInputContainer" class="d-flex justify-content-center">
     <div class="row mb-4">
-        <div class="col">
+        <div class="col-md-6"> <!-- Cambia esto a la cantidad de columnas que desees, en este caso 6 -->
             <form id="searchForm" class="d-flex">
-                <input id="searchInput"   class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Buscar">
+                <input id="searchInput" class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Buscar">
                 <button class="btn btn-outline-primary" type="submit">Buscar</button>
             </form>
         </div>
     </div>
+</div>
 
     <!-- Contenedores de productos utilizando Bootstrap -->
     <div class="container productos-container">

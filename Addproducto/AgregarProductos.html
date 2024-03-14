@@ -5,87 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registrar Producto</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../Addproducto/addProducto.css" />
+    <script src="../animationsjs/sidebarslide.js"></script>
+
     <link rel="icon" href="../favicon.ico" />
-    <style>
-      .centered-form {
-        display: flex; 
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-    </style>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg bg-info text-secondary shadow d-flex justify-content-between align-items-center">
+      <div class="logo-text-container">   
+        <img src="../assets/logo_scanGo.png" alt="Logo" class="mr-5 logo" style="width: 50px;">
+        <a class="navbar-text navbar-text-custom" >Fast && Go</a>
+      </div>
+      <button class="navbar-toggler" type="button" id="sidebarToggle" aria-controls="sidebar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="sidebar" id="sidebar"> 
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="../Ventas/Ventas.html">Ventas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Productos/Prodcuctos.html">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Estadisticas/Estadisticas.html">Estadisticas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../DescagarReporte/DescargarReporte.html">Descargar reporte</a>
+            </li>
+            <li>
+                <a class="nav-link" href="../Addproducto/AgregarProductos.html">Agregar Producto</a>
+            </li>
+        </ul>
+    </div> 
     <div class="container mt-5">
       <div class="centered-form">
-        <div>
-          <h1 class="text-center mb-4">Registrar Producto</h1>
-          <form id="productForm">
+        <h1 class="text-center mb-4">Registrar Producto</h1>
+        <form id="productForm">
             <div class="mb-3">
               <label for="productId" class="form-label">ID del Producto</label>
-              <input
-                type="text"
-                class="form-control custom-input"
-                id="productId"
-                required
-              />
+              <input type="text" class="form-control custom-input" id="productId" required />
             </div>
             <div class="mb-3">
-              <label for="productName" class="form-label"
-                >Nombre del Producto</label
-              >
-              <input
-                type="text"
-                class="form-control custom-input"
-                id="productName"
-                required
-              />
+              <label for="productName" class="form-label">Nombre del Producto</label>
+              <input type="text" class="form-control custom-input" id="productName" required />
             </div>
             <div class="mb-3">
-              <label for="productPrice" class="form-label"
-                >Precio del Producto</label
-              >
-              <input
-                type="number"
-                class="form-control custom-input"
-                id="productPrice"
-                required
-              />
+              <label for="productPrice" class="form-label">Precio del Producto</label>
+              <input type="number" class="form-control custom-input" id="productPrice" required />
             </div>
             <div class="mb-3">
-              <label for="productQuantity" class="form-label"
-                >Cantidad en Stock</label
-              >
-              <input
-                type="number"
-                class="form-control custom-input"
-                id="productQuantity"
-                required
-              />
+              <label for="productQuantity" class="form-label">Cantidad en Stock</label>
+              <input type="number" class="form-control custom-input" id="productQuantity" required />
             </div>
             <div class="mb-3">
-              <label for="productName" class="form-label"
-                >Nombre del Producto</label
-              >
-              <input
-                type="file"
-                class="form-control custom-input"
-                id="productImage"
-                required
-              />
+              <label for="productName" class="form-label">Nombre del Producto</label>
+              <input type="file" class="form-control custom-input" id="productImage" required />
             </div>
-            <button type="submit" class="btn btn-primary custom-btn">
-              Registrar Producto
-            </button>
-          </form>
-        </div>
+            <button type="submit" class="btn btn-primary custom-btn">Registrar Producto</button>
+        </form>
       </div>
     </div>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <footer class="bg-info text-secondary shadow d-flex justify-content-center align-items-center p-3">
+      <p class="mb-0">© 2022 Your Company Name</p>
+  </footer> 
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="addProducto.js"></script>
-   
   </body>
 </html>

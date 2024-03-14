@@ -18,16 +18,20 @@ function mostrarProducto(producto) {
 }
 
 // Función para cargar todos los productos inicialmente
+// Función para cargar todos los productos inicialmente
 function cargarProductos() {
     const urlParams = new URLSearchParams(window.location.search);
     const establecimientoId = urlParams.get('idSuper');
 
+    var productosContainer = document.querySelector('.productos-container .row');
+    var spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    productosContainer.appendChild(spinner);
+
     fetch(`https://walmart.somee.com/publish/v1/Establecimiento/Inventario?idEstablecimiento=${establecimientoId}`)
         .then(response => response.json())
         .then(productos => {
-            var productosContainer = document.querySelector('.productos-container .row');
-
-            productosContainer.innerHTML = '';
+            productosContainer.removeChild(spinner);
 
             productos.forEach(producto => {
                 var productoDiv = mostrarProducto(producto);
