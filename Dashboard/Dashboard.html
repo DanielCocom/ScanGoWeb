@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Establecimientos</title>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-info text-secondary shadow d-flex justify-content-between align-items-center px-5">
-        <div class="d-flex align-items-center">
-            <a class="navbar-brand" href="#">FAST && GO</a>
-        </div>
-        <div>
-        </div>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-info text-secondary shadow d-flex justify-content-between align-items-center px-5"
+    >
+      <div class="logo-text-container">
+        <img src="../assets/official_logo.png" alt="" id="logo-dash" />
+      </div>
+     
+      <div>
+        <a class="btn accordion" href="../logIn/index.html">Cerra Sesion</a>
+      </div>
     </nav>
 
-    <div class="container justify-content-center mt-5 mb-5" id="establecimientosContainer">
-        <!-- Aquí se mostrarán los establecimientos -->
+    <div
+      class="container justify-content-center mt-5 mb-5"
+      id="establecimientosContainer"
+    >
+      <!-- Aquí se mostrarán los establecimientos -->
     </div>
 
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="Dashboard.js"></script>
-</body>
-<footer class="bg-info text-secondary shadow d-flex justify-content-center align-items-center p-3">
+  </body>
+  <footer
+    class="bg-info text-secondary shadow d-flex justify-content-center align-items-center p-3"
+  >
     <p class="mb-0">© 2022 ScanGo</p>
-</footer>
+  </footer>
 </html>

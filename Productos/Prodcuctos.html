@@ -1,117 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fst && Go</title>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
     <script src="../animationsjs/sidebarslide.js"></script>
-    
-</head>
+  </head>
 
-<body>
+  <body>
     <nav
-        class="navbar navbar-expand-lg bg-info text-secondary shadow d-flex justify-content-between align-items-center">
-           <div class="logo-text-container">
-            
-            <a class="navbar-brand" >Fast && Go</a>
-           </div>
+      class="navbar navbar-expand-lg bg-info text-secondary shadow d-flex justify-content-between align-items-center"
+    >
+      <div class="logo-text-container">
+        <a class="navbar-brand">
+          <img src="/assets/official_logo.png" alt="" id="img-logo" />
+        </a>
+      </div>
 
-           <button class="navbar-toggler" type="button" id="sidebarToggle" aria-controls="sidebar"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
-          
-        
+      <button
+        class="navbar-toggler"
+        type="button"
+        id="sidebarToggle"
+        aria-controls="sidebar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </nav>
     <!-- Barra lateral -->
     <div class="sidebar" id="sidebar">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="../Ventas/Ventas.html">Ventas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Productos/Prodcuctos.html">Productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Estadisticas/Estadisticas.html">Estadisticas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../DescagarReporte/DescargarReporte.html">Descargar reporte</a>
-            </li>
-            <a class="nav-link" href="../Addproducto/AgregarProductos.html">Agregar Producto</a>
-
-        </ul>
-    </div>  
-   <!-- HTML -->
-<!-- HTML -->
-<!-- HTML -->
-<div id="serchInputContainer" class="d-flex justify-content-center">
-    <div class="row mb-4">
-        <div class="col-md-6"> <!-- Cambia esto a la cantidad de columnas que desees, en este caso 6 -->
-            <form id="searchForm" class="d-flex">
-                <input id="searchInput" class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Buscar">
-                <button class="btn btn-outline-primary" type="submit">Buscar</button>
-            </form>
-        </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="../Ventas/Ventas.html">Ventas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Productos/Prodcuctos.html">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Estadisticas/Estadisticas.html"
+            >Estadisticas</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../DescagarReporte/DescargarReporte.html"
+            >Descargar reporte</a
+          >
+        </li>
+        <a class="nav-link" href="../Addproducto/AgregarProductos.html"
+          >Agregar Producto</a
+        >
+      </ul>
     </div>
-</div>
+    <!-- HTML -->
+    <!-- HTML -->
+    <!-- HTML -->
+    <div id="serchInputContainer" class="d-flex justify-content-center">
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <!-- Cambia esto a la cantidad de columnas que desees, en este caso 6 -->
+          <form id="searchForm" class="d-flex">
+            <input
+              id="searchInput"
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar productos..."
+              aria-label="Buscar"
+            />
+            <button class="btn btn-outline-primary" type="submit">
+              Buscar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- Contenedores de productos utilizando Bootstrap -->
     <div class="container productos-container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="producto">
-                    <img src="assets/bleach.jpg" alt="Producto 1" class="img-fluid">
-                    <div class="producto-info">
-                        <h3>Bleach Manga</h3>
-                        <p>Cantidad: 10</p>
-                        <p>Precio: $120</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="producto">
-                    <img src="assets/Bakemonogatari.jpg" alt="Producto 2" class="img-fluid">
-                    <div class="producto-info">
-                        <h3>Bakemonogatari vol 1</h3>
-                        <p>Cantidad: 15</p>
-                        <p>Precio: $130</p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="producto">
-                    <img src="assets/sabritas.jpg" alt="Producto 1" class="img-fluid">
-                    <div class="producto-info">
-                        <h3>Sabritas</h3>
-                        <p>Cantidad: 10</p>
-                        <p>Precio: $100</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="producto">
-                    <img src="assets/audifonos.jpg" alt="Producto 2" class="img-fluid">
-                    <div class="producto-info">
-                        <h3>Audifonos Gamer</h3>
-                        <p>Cantidad: 15</p>
-                        <p>Precio: $150</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Agregar más productos aquí según sea necesario -->
-        </div>
+      <div class="row" id="producto-content">
+        <!-- Agregar más productos aquí según sea necesario -->
+      </div>
     </div>
     <!-- Add this at the end of your body tag, before the script tag -->
-<footer class="bg-info text-secondary shadow d-flex justify-content-center align-items-center p-3">
-    <p class="mb-0">© 2022 Your Company Name</p>
-</footer>
+    <footer
+      class="bg-info text-secondary shadow d-flex justify-content-center align-items-center p-3"
+    >
+      <p class="mb-0">© 2022 FasT && Go</p>
+    </footer>
 
     <script type="module" src="app.js"></script>
-</body>
-
+  </body>
 </html>

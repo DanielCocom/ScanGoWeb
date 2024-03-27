@@ -1,73 +1,79 @@
-document.getElementById('downloadPdfButton').addEventListener('click', function() {
+document.getElementById('downloadPdfButton').addEventListener('click', function () {
   var doc = new jsPDF();
+  var establecimientoId = localStorage.getItem('establecimientoId');
 
   // Realizar la solicitud GET a tu endpoint de productos más vendidos
-  fetch('https://walmart.somee.com/publish/v1/Venta/ProductoMasVendido?idEstablecimiento=1')
-      .then(response => response.json()) // Convertir la respuesta a formato JSON
-      .then(data => {
-          // Agregar título al reporte
-          doc.setFontSize(20);
-          doc.text('Reporte del Establecimiento', 10, 20);
-        
-          // Agregar texto descriptivo
-          doc.setFontSize(12);
-          doc.text('Reporte del establecimiento.', 10, 30);
+  fetch(`https://walmart.somee.com/publish/v1/Venta/ProductoMasVendido?idEstablecimiento=${establecimientoId}`)
+    .then(response => response.json())
+    .then(productosMasVendidos => {
+      // Agregar título al reporte
+      doc.setFontSize(20);
+      doc.text(`Reporte Mensual del Establecimiento${localStorage.getItem('establecimientoNombre')}`, 10, 20);
 
-          // Iterar sobre los datos de productos obtenidos y agregarlos al reporte
-          var posY = 35; // Posición inicial para el contenido de los productos
-          data.forEach((producto, index) => {
-              posY += 10; // Aumentar la posición en Y para cada nuevo elemento
-              doc.text(`${producto.nombreProducto}: ${producto.cantidadVendida}`, 10, posY);
+      // Agregar texto descriptivo  
+      doc.setFontSize(15);
+      doc.text('A continuación se presentan las siguientes pautas en el desempeño de las ventas del establecimiento.', 10, 30);
+
+      // Configurar posición inicial y margen de la tabla de productos
+      var startX = 10;
+      var startY = 40;
+      var margin = 10;
+      var col1Width = 80;
+      var col2Width = 40;
+
+      // Agregar encabezados de la tabla de productos
+      doc.setFontSize(18);
+      doc.setFontStyle('normal');
+      doc.text('Producto', startX, startY);
+      doc.text('Cantidad Vendida', startX + col1Width + margin, startY);
+
+      startY += margin;
+
+      // Agregar datos de productos
+      productosMasVendidos.slice(0, 5).forEach((producto, index) => {
+        var productoNombre = producto.nombreProducto;
+        var cantidadVendida = producto.cantidadVendida;
+
+        doc.text(productoNombre, startX, startY + (index + 1) * margin);
+        doc.text(cantidadVendida.toString(), startX + col1Width + margin, startY + (index + 1) * margin);
+      });
+
+      // Realizar la solicitud GET a tu endpoint de ventas
+      fetch(`https://walmart.somee.com/publish/v1/Venta/VentasTienda?idEstablecimiento=${establecimientoId}`)
+        .then(response => response.json())
+        .then(ventas => {
+          // Configurar posición inicial y margen de la tabla de ventas
+          startY += (productosMasVendidos.length + 2) * margin;
+          doc.text('ID Venta', startX, startY);
+          doc.text('Fecha Venta', startX + 50, startY);
+          doc.text('Total Pagado', startX + 120, startY);
+          doc.text('Nombre Tienda', startX + 200, startY);
+          doc.text('ID Transacción', startX + 320, startY);
+
+          // Agregar datos de ventas
+          ventas.slice(0, 5).forEach((venta, index) => {
+            startY += margin;
+            doc.text(venta.idVenta.toString(), startX, startY);
+            doc.text(formatDate(venta.fechaVenta), startX + 50, startY);
+            doc.text(venta.totalPagado.toString(), startX + 120, startY);
+            doc.text(venta.nombreTienda, startX + 200, startY);
+            doc.text(venta.idTransaccion, startX + 320, startY);
           });
 
-          // Realizar la solicitud GET a tu endpoint de ventas por mes
-          fetch('https://walmart.somee.com/publish/v1/Venta/VentasPorMesTienda?idEstablecimiento=1')
-              .then(response => response.json()) // Convertir la respuesta a formato JSON
-              .then(ventasPorMes => {
-                  // Agregar espacio entre la lista de productos y la información de ventas por mes
-                  posY += 20;
-                  // Agregar título de ventas por mes
-                  doc.setFontSize(16);
-                  doc.text('Ventas por Mes', 10, posY);
-                  // Iterar sobre los datos de ventas por mes y agregarlos al reporte
-                  ventasPorMes.forEach((mes, index) => {
-                      posY += 10; // Aumentar la posición en Y para cada nuevo elemento
-                      doc.text(`${mes.mes} ${mes.anio}: Ganancias ${mes.ganancias}, Total Productos Vendidos - ${mes.totalProductosVendidos}`, 10, posY);
-                  });
-
-                  // Realizar la solicitud GET a tu endpoint de últimas ventas
-                  fetch('https://walmart.somee.com/publish/v1/Venta/UltimasVentas?idEstablecimiento=1')
-                      .then(response => response.json()) // Convertir la respuesta a formato JSON
-                      .then(ultimasVentas => {
-                          // Agregar espacio entre la información de ventas por mes y las últimas ventas
-                          posY += 20;
-                          // Agregar título de últimas ventas
-                          doc.setFontSize(13);
-                          doc.text('Últimas Ventas', 8, posY);
-                          // Iterar sobre los datos de últimas ventas y agregarlos al reporte
-                          ultimasVentas.forEach((venta, index) => {
-                            posY += 10; // Aumentar la posición en Y para cada nuevo elemento
-                            var fecha = new Date(venta.fechaVenta);
-                            var formattedFecha = fecha.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                            doc.text(`ID: ${venta.idVenta}, Fecha: ${formattedFecha}, Total Pagado: ${venta.totalPagado}, Tienda: ${venta.nombreTienda}, Transacción: ${venta.idTransaccion}`, 10, posY);
-                        });
-                        
-                          // Guardar el PDF
-                          doc.save('reporte.pdf');
-                      })
-                      .catch(error => {
-                          console.error('Error al obtener los datos de últimas ventas:', error);
-                          // Guardar el PDF incluso si hay un error al obtener los datos de últimas ventas
-                          doc.save('reporte.pdf');
-                      });
-              })
-              .catch(error => {
-                  console.error('Error al obtener los datos de ventas por mes:', error);
-                  // Guardar el PDF incluso si hay un error al obtener los datos de ventas por mes
-                  doc.save('reporte_productos_mas_vendidos.pdf');
-              });
-      })
-      .catch(error => {
-          console.error('Error al obtener los datos de productos más vendidos:', error);
-      });
+          // Guardar el PDF
+          doc.save('Reporte.pdf');
+        })
+        .catch(error => {
+          console.error('Error al obtener las ventas:', error);
+        });
+    })
+    .catch(error => {
+      console.error('Error al obtener los productos más vendidos:', error);
+    });
 });
+
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }) + ' ' + date.toLocaleTimeString();
+}
