@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Agregar el ID del establecimiento como atributo de datos al formulario
                 formulario.dataset.establecimientoId = establecimiento.idSuper;
+                formulario.dataset.nombre = establecimiento.nombre;
+                
 
                 // Agregar el controlador de eventos para el botón de inventario
                 boton.addEventListener('click', function (event) {
@@ -50,9 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Obtener el ID del establecimiento desde el atributo de datos
                     var establecimientoId = this.parentNode.dataset.establecimientoId;
+                    var establecimientoName = this.parentNode.dataset.nombre;
 
                     // Redirigir a la página de productos con el ID del establecimiento en la URL
                     window.location.href = `/Productos/Prodcuctos.html?idSuper=${establecimientoId}`;
+
+                    localStorage.setItem('establecimientoId', establecimientoId)
+                    localStorage.setItem('establecimientoNombre', establecimientoName);
                 });
 
                 // Agregar el div del establecimiento al contenedor
@@ -63,4 +69,3 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error al obtener establecimientos:', error);
         });
 });
-

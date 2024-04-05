@@ -1,4 +1,4 @@
-
+var establecimientoId = localStorage.getItem('establecimientoId')
 document.addEventListener('DOMContentLoaded', (event) => {
     // Obtener el contexto del primer gráfico
     var ctx1 = document.getElementById('salesPerMonthChart').getContext('2d');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     // Endpoint de ejemplo (reemplaza esto con la URL de tu endpoint real)
-    var endpointURL = 'https://walmart.somee.com/publish/v1/Venta/VentasPorMesTienda?idEstablecimiento=1';
+    var endpointURL = `https://walmart.somee.com/publish/v1/Venta/VentasPorMesTienda?idEstablecimiento=${establecimientoId}`;
 
     // Hacer la solicitud GET al endpoint
     fetch(endpointURL)
@@ -30,8 +30,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         .then(data => {
             // Procesar los datos recibidos para el gráfico
             data.forEach(item => {
-                salesPerMonthData.labels.push(item.mes); // Agregar el mes como etiqueta
-                salesPerMonthData.datasets[0].data.push(item.ganancias); // Agregar las ganancias como dato
+                salesPerMonthData.labels.push(item.mes); 
+                // Agregar el mes como etiqueta
+                salesPerMonthData.datasets[0].data.push(item.ganancias); 
+                // salesPerMonthData.datasets[0].data.push(item.totalProductosVendidos)// Agregar las ganancias como dato
             });
 
             // Actualizar el gráfico con los nuevos datos
@@ -80,8 +82,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var salesTableBody = document.getElementById('salesTable').getElementsByTagName('tbody')[0];
 
     // Realizar la solicitud GET a tu endpoint de ventas
-    fetch('https://walmart.somee.com/publish/v1/Venta/UltimasVentas?idEstablecimiento=1')
-        .then(response => response.json()) // Convertir la respuesta a formato JSON
+    fetch(`https://walmart.somee.com/publish/v1/Venta/UltimasVentas?idEstablecimiento=${establecimientoId}`)
+    .then(response => response.json()) // Convertir la respuesta a formato JSON
         .then(data => {
             // Procesar los datos de la respuesta
             data.forEach(sale => {
@@ -92,7 +94,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 var row = salesTableBody.insertRow();
                 row.insertCell(0).innerHTML = sale.idVenta;
                 row.insertCell(1).innerHTML = formattedDate; // Usar la fecha formateada
-                row.insertCell(2).innerHTML = sale.totalPagado;
+                row.insertCell(2).innerHTML = sale.totalPagado + ' Pesos';
                 row.insertCell(3).innerHTML = sale.nombreTienda;
                 row.insertCell(4).innerHTML = sale.idTransaccion;
             });

@@ -8,7 +8,7 @@ function mostrarProducto(producto) {
             <img src="${producto.imagen}" alt="${producto.nombreProducto}" class="img-fluid">
             <div class="producto-info">
                 <h3>${producto.nombreProducto}</h3>
-                <p>Cantidad: ${producto.cantidad}</p>
+                <p>Stock: ${producto.cantidad}</p>
                 <p>Precio: $${producto.precio}</p>
             </div>
         </div>
@@ -20,10 +20,12 @@ function mostrarProducto(producto) {
 // Función para cargar todos los productos inicialmente
 // Función para cargar todos los productos inicialmente
 function cargarProductos() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const establecimientoId = urlParams.get('idSuper');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const establecimientoId = urlParams.get('idSuper');
 
-    var productosContainer = document.querySelector('.productos-container .row');
+    var establecimientoId = localStorage.getItem('establecimientoId')
+
+    var productosContainer = document.getElementById('producto-content');
     var spinner = document.createElement('div');
     spinner.className = 'spinner';
     productosContainer.appendChild(spinner);
@@ -44,9 +46,12 @@ function cargarProductos() {
 }
 
 // Función para realizar la búsqueda de productos
-// Función para realizar la búsqueda de productos
+// Reducir redundancia en el codigo
 function buscarProductos(searchTerm) {
     var searchUrl = `https://walmart.somee.com/publish/v1/Establecimiento/BuscarProducto?value=${searchTerm}`;
+
+    var productosContainer = document.getElementById('producto-content');
+    productosContainer.innerHTML = '';
 
     if (!searchTerm) {
         cargarProductos();
@@ -56,7 +61,7 @@ function buscarProductos(searchTerm) {
     fetch(searchUrl)
         .then(response => response.json())
         .then(productos => {
-            var productosContainer = document.querySelector('.productos-container .row');
+
             productosContainer.innerHTML = '';
 
             if (productos.length === 0) {
@@ -85,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Manejo del evento de envío del formulario de búsqueda
 var searchForm = document.getElementById('searchForm');
-searchForm.addEventListener('submit', function(event) {
+searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     var searchTerm = document.getElementById('searchInput').value;
@@ -93,10 +98,12 @@ searchForm.addEventListener('submit', function(event) {
 });
 
 var searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('keypress', function(event) {
+searchInput.addEventListener('keypress', function (event) {
     // Verificar si se presionó la tecla Enter (código 13)
     if (event.key === 'Enter') {
         var searchTerm = searchInput.value;
         buscarProductos(searchTerm);
     }
 });
+
+console.log(localStorage.getItem('establecimientoNombre'));
