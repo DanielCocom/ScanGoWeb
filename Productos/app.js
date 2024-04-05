@@ -17,13 +17,13 @@ function mostrarProducto(producto) {
     return productoDiv;
 }
 
+var establecimientoId = localStorage.getItem('establecimientoId')
 // Función para cargar todos los productos inicialmente
 // Función para cargar todos los productos inicialmente
 function cargarProductos() {
     // const urlParams = new URLSearchParams(window.location.search);
     // const establecimientoId = urlParams.get('idSuper');
 
-    var establecimientoId = localStorage.getItem('establecimientoId')
 
     var productosContainer = document.getElementById('producto-content');
     var spinner = document.createElement('div');
@@ -48,7 +48,7 @@ function cargarProductos() {
 // Función para realizar la búsqueda de productos
 // Reducir redundancia en el codigo
 function buscarProductos(searchTerm) {
-    var searchUrl = `https://walmart.somee.com/publish/v1/Establecimiento/BuscarProducto?value=${searchTerm}`;
+    var searchUrl = `https://walmart.somee.com/publish/v1/Establecimiento/BuscarProducto?value=${searchTerm}&idEstablecimiento=${establecimientoId}`;
 
     var productosContainer = document.getElementById('producto-content');
     productosContainer.innerHTML = '';
