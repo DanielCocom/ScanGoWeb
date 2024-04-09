@@ -8,12 +8,10 @@
             margin: 0;
             padding: 0;
         }
-
         .container {
-            width: 80%;
+            width: 50%;
             margin: 0 auto;
         }
-
         .form-wrap {
             background: #fff;
             padding: 15px 25px;
@@ -22,16 +20,13 @@
             border-radius: 5px;
             box-shadow: 0px 0px 10px 0px #3c3c3c;
         }
-
         .form-wrap h1,
         .form-wrap p {
             text-align: center;
         }
-
         .form-wrap .form-group {
             margin-bottom: 15px;
         }
-
         .form-wrap .form-group label {
             display: block;
             color: #666;
@@ -64,7 +59,7 @@
     <div class="container">
         <div class="form-wrap">
             <h1>Añadir un establecimiento</h1>
-            <form>
+            <form id="myForm">
                 <div class="form-group">
                     <label for="name">Nombre</label>
                     <input type="text" id="name" required>
@@ -82,4 +77,5 @@
         </div>
     </div>
 </body>
+<script src="AddTienda.js"></script>
 </html>
