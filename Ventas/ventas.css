@@ -9,6 +9,9 @@
   align-items: center;
   padding: 20px;
 }
+body {
+  margin-top: 130px; /* Ajusta este valor según la altura de tu barra de navegación */
+}
 
 /* Gráficos */
 .ventas > .row > .col-md-12 > canvas {

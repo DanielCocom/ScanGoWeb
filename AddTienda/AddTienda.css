@@ -27,3 +27,57 @@
     font-weight: bold;
     margin-left: 15px;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    margin-top: 130px; /* Ajusta este valor según la altura de tu barra de navegación */
+}
+.container-establecimiento {
+    width: 50%;
+    margin: 0 auto;
+    margin-left: 20%; /* Ajusta este valor según cuánto quieras mover el contenedor hacia la derecha */
+}
+.form-wrap {
+    background: #fff;
+    padding: 15px 25px;
+    color: #333;
+    margin: 50px 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #3c3c3c;
+}
+.form-wrap h1,
+.form-wrap p {
+    text-align: center;
+}
+.form-wrap .form-group {
+    margin-bottom: 15px;
+}
+.form-wrap .form-group label {
+    display: block;
+    color: #666;
+}
+
+.form-wrap .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: #ddd 1px solid;
+    border-radius: 5px;
+}
+
+.form-wrap button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background-color: #17a2b8;
+    color: #fff;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.form-wrap button:hover {
+    background-color: #17a2b8;
+}

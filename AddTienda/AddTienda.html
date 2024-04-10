@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 50%;
-            margin: 0 auto;
-        }
-        .form-wrap {
-            background: #fff;
-            padding: 15px 25px;
-            color: #333;
-            margin: 50px 0;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px #3c3c3c;
-        }
-        .form-wrap h1,
-        .form-wrap p {
-            text-align: center;
-        }
-        .form-wrap .form-group {
-            margin-bottom: 15px;
-        }
-        .form-wrap .form-group label {
-            display: block;
-            color: #666;
-        }
-
-        .form-wrap .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: #ddd 1px solid;
-            border-radius: 5px;
-        }
-
-        .form-wrap button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            border: 0;
-            background-color: #17a2b8;
-            color: #fff;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-
-        .form-wrap button:hover {
-            background-color: #17a2b8;
-        }
-        
-    </style>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fast && Go</title>
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="AddTienda.css" />
+        <link rel="stylesheet" href="../style.css" />
+        <script src="../animationsjs/sidebarslide.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      </head>
 </head>
 <body>
-    <div class="container">
+    <nav
+      class="navbar navbar-expand-lg bg-info text-secondary shadow d-flex justify-content-between align-items-center"
+    >
+    <div class="logo-text-container">
+      <a class="navbar-brand">
+        <img src="/assets/official_logo.png" alt="" id="img-logo" />
+      </a>
+    </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        id="sidebarToggle"
+        aria-controls="sidebar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="sidebar" id="sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="../Ventas/Ventas.html">Ventas</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../Productos/Prodcuctos.html">Productos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../Estadisticas/Estadisticas.html"
+            >Estadisticas</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../DescagarReporte/DescargarReporte.html"
+            >Descargar reporte</a
+          >
+        </li>
+
+        <li>
+          <a class="nav-link" href="../Addproducto/AgregarProductos.html"
+            >Agregar Producto</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="../AddTienda/AddTienda.html">Agregar Establecimiento</a>
+      </li>
+      </ul>
+    </div>
+    <div class="container-establecimiento">
         <div class="form-wrap">
             <h1>Añadir un establecimiento</h1>
             <form id="myForm">
@@ -78,5 +86,10 @@
         </div>
     </div>
 </body>
+<footer
+    class="bg-info text-secondary shadow d-flex justify-content-center align-items-center p-3"
+  >
+    <p class="mb-0">© 2024 Fast & Go</p>
+  </footer>
 <script src="AddTienda.js"></script>
 </html>

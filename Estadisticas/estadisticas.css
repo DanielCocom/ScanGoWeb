@@ -1,6 +1,9 @@
 /* statistics.css */
 
 /* Contenedor principal */
+body {
+    margin-top: 130px; /* Ajusta este valor según la altura de tu barra de navegación */
+  }
 .stats-container {
     margin-top: 60px; /* Ajusta este valor según la altura de tu barra de navegación */
 
